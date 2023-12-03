@@ -1,15 +1,13 @@
-FROM nvcr.io/nvidia/pytorch:22.10-py3
+FROM ubuntu:22.04
 
-RUN wget https://github.com/coder/code-server/releases/download/v4.8.3/code-server_4.8.3_amd64.deb && \
-    dpkg -i code-server_4.8.3_amd64.deb && \
-    rm -f code-server_4.8.3_amd64.deb
+RUN apt update && apt install -y curl
 
-RUN code-server --install-extension ms-python.python
+# install VS Code (code-server)
+RUN curl -fsSL https://code-server.dev/install.sh | sh
 
-RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/v1.9.8/cpptools-linux.vsix && \
-    code-server --install-extension cpptools-linux.vsix && \
-    rm -f cpptools-linux.vsix
+# install VS Code extensions
+RUN code-server --install-extension redhat.vscode-yaml \
+                --install-extension ms-python.python
 
-COPY NVIDIA.nsight-vscode-edition-2022.2.31663688.vsix NVIDIA.nsight-vscode-edition.vsix
-RUN code-server --install-extension NVIDIA.nsight-vscode-edition.vsix && \
-    rm -f NVIDIA.nsight-vscode-edition.vsix
+RUN EXT_LIST="redhat.vscode-yaml ms-python.python" && \
+    for EXT in $EXT_LIST; do code-server --install-extension $EXT; done
