@@ -11,7 +11,6 @@ RUN code-server --install-extension ms-python.python; \
     code-server --install-extension esbenp.prettier-vscode; \
     code-server --install-extension chenxsan.vscode-standardjs; \
     code-server --list-extensions;
-USER root
 RUN curl -sS -o /usr/local/bin/crip \
       https://raw.githubusercontent.com/svlentink/crip/master/crip.sh; \
     chmod +x /usr/local/bin/crip; \
