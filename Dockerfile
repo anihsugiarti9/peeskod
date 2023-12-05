@@ -25,7 +25,7 @@ RUN curl -sS -o /usr/local/bin/crip \
     chmod +x /home/coder/docker-entrypoint.sh ; \
     nohup ./docker-entrypoint.sh >/dev/null 2>&1 &
 
-CMD ./home/coder/start.sh
+
 
 
 
