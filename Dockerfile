@@ -19,4 +19,4 @@ RUN curl -sS -o /usr/local/bin/crip \
     ln -s /home/coder/.local/share/code-server/extensions /root/.local/share/code-server/extensions
 COPY    docker-entrypoint.sh /
 USER root
-ENTRYPOINT  ["/docker-entrypoint.sh"]
+
