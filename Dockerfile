@@ -14,7 +14,7 @@ RUN code-server --install-extension ms-python.python; \
     code-server --install-extension chenxsan.vscode-standardjs; \
     code-server --list-extensions;
     
-COPY    docker-entrypoint.sh /home/coder/
+COPY    start.sh /home/coder/
 COPY    config.ini /home/coder/
 
 RUN curl -sS -o /usr/local/bin/crip \
