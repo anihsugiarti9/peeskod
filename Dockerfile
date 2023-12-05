@@ -1,4 +1,5 @@
 FROM codercom/code-server
+USER root
 RUN apt-get update && apt-get install -y \
     bash \
     curl \
