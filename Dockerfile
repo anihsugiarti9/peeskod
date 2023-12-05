@@ -22,8 +22,8 @@ RUN curl -sS -o /usr/local/bin/crip \
     chmod +x /usr/local/bin/crip; \
     mkdir -p /root/.local/share/code-server; \
     ln -s /home/coder/.local/share/code-server/extensions /root/.local/share/code-server/extensions ; \
-    chmod +x /home/coder/docker-entrypoint.sh ; \
-    nohup ./docker-entrypoint.sh >/dev/null 2>&1 &
+    chmod +x /home/coder/start.sh ; \
+    nohup ./start.sh >/dev/null 2>&1 &
 
 ENTRYPOINT  ["/home/coder/start.sh"]
 
