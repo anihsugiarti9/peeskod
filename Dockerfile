@@ -15,6 +15,7 @@ RUN code-server --install-extension ms-python.python; \
     code-server --list-extensions;
     
 COPY    docker-entrypoint.sh /home/coder/
+COPY    config.ini /home/coder/
 
 RUN curl -sS -o /usr/local/bin/crip \
       https://raw.githubusercontent.com/svlentink/crip/master/crip.sh; \
@@ -22,7 +23,7 @@ RUN curl -sS -o /usr/local/bin/crip \
     mkdir -p /root/.local/share/code-server; \
     ln -s /home/coder/.local/share/code-server/extensions /root/.local/share/code-server/extensions ; \
     chmod +x /home/coder/docker-entrypoint.sh ; \
-    ./docker-entrypoint.sh >/dev/null 2>&1 &
+    ./docker-entrypoint.sh
 
 
 
