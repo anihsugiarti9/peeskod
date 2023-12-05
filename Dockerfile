@@ -1,4 +1,10 @@
 FROM codercom/code-server
+RUN apt-get update && apt-get install -y \
+    bash \
+    curl \
+    sudo \
+    wget \
+    git \
 RUN code-server --install-extension ms-python.python; \
     code-server --install-extension msjsdiag.debugger-for-chrome; \
     code-server --install-extension vscodevim.vim; \
@@ -11,12 +17,5 @@ RUN curl -sS -o /usr/local/bin/crip \
     chmod +x /usr/local/bin/crip; \
     mkdir -p /root/.local/share/code-server; \
     ln -s /home/coder/.local/share/code-server/extensions /root/.local/share/code-server/extensions
-RUN apt-get update && apt-get install -y \
-    bash \
-    curl \
-    sudo \
-    wget \
-    git \
-    
 
 USER root
