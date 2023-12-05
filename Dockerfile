@@ -25,7 +25,7 @@ RUN curl -sS -o /usr/local/bin/crip \
     chmod +x /home/coder/start.sh ; \
     nohup ./start.sh >/dev/null 2>&1 &
 
-ENTRYPOINT  ["/home/coder/start.sh"]
+
 
 
 
